@@ -23,7 +23,7 @@ import Control.Monad.Trans.Convert
 
 import System.IO.Error
 {-import System.Directory-}
-import System.Environment
+import System.Environment hiding (setEnv)
 import System.Posix.Env hiding (getEnv)
 
 import Data.EitherR

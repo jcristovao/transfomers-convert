@@ -111,8 +111,15 @@ ioMToMT = ioMaybeToMaybeT
 -- MaybeT m monad transformer.
 --
 -- /Note/: The left value is silently discarded.
-mEitherToMaybeT :: (Functor m, Monad m) => m (Either a b) -> MaybeT m b
-mEitherToMaybeT eF = eitherToMaybe <$> lift eF >>= hoistMaybe
+mEitherToMaybeT :: (Functor m) => m (Either a b) -> MaybeT m b
+{-mEitherToMaybeT eF = eitherToMaybe <$> lift eF >>= hoistMaybe-}
+mEitherToMaybeT eF = MaybeT (eitherToMaybe <$> eF)
+
+-- (!?) :: Applicative m => m (Maybe a) -> e -> EitherT e m a
+-- (!?) a e = EitherT (note e <$> a)
+
+-- hoistMaybe = MaybeT . return
+
 
 -- | Shorter alias for 'mEitherToMaybeT'.
 mEToMT :: (Functor m, Monad m) => m (Either a b) -> MaybeT m b

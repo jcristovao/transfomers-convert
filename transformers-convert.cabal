@@ -1,5 +1,5 @@
 name:                transformers-convert
-version:             0.1.0.1
+version:             0.2.0.0
 synopsis:            Sensible conversions between some of the monad transformers
 description:         Sensible conversions between MaybeT and EitherT monad transformers. 
 homepage:            https://github.com/jcristovao/transformers-convert
@@ -24,10 +24,10 @@ library
   -- other-modules:       
   
   -- Other library packages from which modules are imported.
-  build-depends:       base           >= 4.6
-                     , transformers   >= 0.3
-                     , either         >= 4.0
-                     , easy-data      >= 0.3.1
+  build-depends:       base           >= 4.6  && < 5
+                     , transformers   >= 0.3  && < 0.5
+                     , either         >= 4.0  && < 4.2
+                     , data-easy      >= 0.4  && < 0.5
   
   -- Directories containing source files.
   hs-source-dirs:    src  
@@ -41,14 +41,14 @@ test-suite test
   type:           exitcode-stdio-1.0
   main-is:        main.hs
   hs-source-dirs: test, src
-  build-depends:  base             >= 4.6
-                , transformers     >= 0.3
-                , either           >= 4.1.1
-                , easy-data        >= 0.3.1
-                , text             >= 0.11.3
-                , errors           >= 1.4.3
-                , directory        >= 1.2.0.1
-                , QuickCheck       >= 2.6
+  build-depends:  base             >= 4.6     && < 5
+                , transformers     >= 0.3     && < 0.5
+                , either           >= 4.1.1   && < 4.2
+                , data-easy        >= 0.4     && < 0.5
+                , text             >= 0.11.3 
+                , errors           >= 1.4.3   && < 1.5
+                , directory        >= 1.2.0.1 && < 1.3
+                , QuickCheck       >= 2.6     
                 , HUnit            >= 1.2.5.2
                 , hspec            >= 1.7.2
                 , unix             >= 2.6
